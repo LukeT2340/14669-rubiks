@@ -13,7 +13,6 @@ const App = () => {
     <div>
       <main>
         <Header />
-        {/* Test comment */}
         <article>
           <LocomotiveParallax locoScrollRef={locoScrollRef}>
             <Hero />
