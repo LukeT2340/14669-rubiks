@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Video from '../../miscellaneous/Video';
 
 const Hero: React.FC = () => (
-  <section className="hero relative h-screen bg-blue-500">
+  <section className="hero relative h-screen bg-blue-950">
     <div className="block-heading flex h-full flex-col items-center justify-center">
       <motion.h1
         className="mb-[20px] text-center text-[2rem] leading-normal text-white lg:text-[5.4rem]"
