@@ -41,3 +41,8 @@
     text-wrap: pretty;
   }
 }
+
+.video-js .vjs-control-bar,
+.video-js .vjs-big-play-button {
+  display: none !important;
+}
