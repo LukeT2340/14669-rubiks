@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
 
   return (
     <section
-      className="hero relative pt-[492px] pb-[47px] lg:h-screen lg:py-0"
+      className="hero relative pt-[492px] pb-[47px] sm:pt-[570px] lg:h-screen lg:py-0"
       ref={sectionRef}
     >
       <div className="z-20 px-[33px] lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-y-1/2">
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
         <h2 className="mb-[53px]">
           The enduring <br /> magic of the <br /> Rubik’s Cube
         </h2>
-        <div className="hero-copy max-w-[476px]">
+        <div className="hero-copy lg:max-w-[476px]">
           <p>
             Timeless, brain-boosting, and packed with personality — discover how
             a colourful cube became a global icon, unlocking fun, focus, and

@@ -37,7 +37,7 @@ const SectionThree: React.FC = () => {
     >
       <div className="bg-red absolute top-0 left-0 z-20 h-[49px] w-full" />
       <div className="3xl:mx-auto relative mx-auto flex max-w-[1920px] flex-col items-start justify-end gap-[60px] lg:flex-row lg:gap-[77px]">
-        <div className="block-copy order-2 mb-[69px] max-w-[458px] pr-[67px] pl-[33px] lg:order-1 lg:mt-[169px] lg:mb-[150px] lg:px-0">
+        <div className="block-copy order-2 mx-auto mb-[69px] max-w-[600px] pr-[67px] pl-[33px] lg:order-1 lg:mx-0! lg:mt-[169px] lg:mb-[150px] lg:max-w-[458px] lg:px-0">
           <h3 className="mb-[30px] lg:mb-[45px]">
             More than <br className="lg:hidden!" /> just a toy
           </h3>

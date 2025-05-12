@@ -39,7 +39,7 @@ const SectionFour: React.FC = () => {
           className="max-w-[95%] object-cover lg:h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw] 2xl:h-auto"
           ref={imageRef}
         />
-        <div className="block-copy mb-[75px] max-w-[100vw] pr-[67px] pl-[38px] lg:mt-[118px] lg:mb-[142px] lg:max-w-[458px] lg:px-0">
+        <div className="block-copy mx-auto mb-[75px] max-w-[100vw] pr-[67px] pl-[38px] sm:max-w-[600px] lg:mx-0! lg:mt-[118px] lg:mb-[142px] lg:max-w-[458px] lg:px-0">
           <h3 className="mb-[30px] lg:mb-[45px]">
             The surprising benefits of hands-on fun
           </h3>

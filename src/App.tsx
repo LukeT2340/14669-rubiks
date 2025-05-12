@@ -26,7 +26,7 @@ const App = () => {
           <LocomotiveParallax locoScrollRef={locoScrollRef}>
             <VideoScroll
               videoId="6372135225112"
-              className="video-wrapper fixed inset-0 z-0 w-[220vw] -translate-x-[20vw] translate-y-[17vw] lg:w-full lg:translate-x-0 lg:translate-y-0"
+              className="video-wrapper fixed inset-0 z-0 w-[220vw] -translate-x-[20vw] translate-y-[17vw] sm:w-[140vw] sm:translate-x-[8vw] sm:translate-y-[4vw] lg:w-full lg:translate-x-0 lg:translate-y-0"
             />
             <Hero />
             <SectionTwo />

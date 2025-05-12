@@ -10,7 +10,7 @@ const SectionTwo: React.FC = () => {
           alt="Boy playing with Rubik's Cube"
           className="max-w-full object-cover lg:max-w-[50%]"
         />
-        <div className="block-copy max-w-[456px]">
+        <div className="block-copy max-w-[600px] lg:max-w-[456px]">
           <p>
             The Rubik’s Cube is having a moment. Or rather, it’s been having a
             moment for the past 50 years. A symbol of curiosity, creativity and

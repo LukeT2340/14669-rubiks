@@ -36,7 +36,7 @@ const SectionSix: React.FC = () => {
       ref={sectionRef}
     >
       <div className="mx-auto flex flex-col items-start justify-end gap-[60px] pt-[18px] lg:max-w-[1920px] lg:flex-row lg:gap-[77px] lg:pt-0">
-        <div className="block-copy z-20 order-2 mb-[171px] max-w-[100vw] pr-[68px] pl-[33px] lg:order-1 lg:mt-[109px] lg:mb-[150px] lg:max-w-[458px] lg:px-0">
+        <div className="block-copy z-20 order-2 mx-auto mb-[171px] max-w-[100vw] pr-[68px] pl-[33px] sm:max-w-[600px] lg:order-1 lg:mx-0! lg:mt-[109px] lg:mb-[150px] lg:max-w-[458px] lg:px-0">
           <h3 className="mb-[45px]">
             Rediscovering quality time with a classic challenge
           </h3>
@@ -56,7 +56,7 @@ const SectionSix: React.FC = () => {
           <MotionImage
             src={cube}
             alt="Cube 4x4"
-            className="max-w-[95vw] -translate-x-[8vw] lg:max-w-[665px] lg:-translate-x-[80px]"
+            className="max-w-[95vw] -translate-x-[8vw] sm:max-w-[75vw] lg:max-w-[665px] lg:-translate-x-[60px]"
           />
           <p>
             Whichever activity you choose, it’s not about who wins or loses,
