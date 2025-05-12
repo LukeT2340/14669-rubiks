@@ -44,7 +44,7 @@ interface Props {
 const CubeAnimation: React.FC<Props> = ({ containerRef }) => {
   useEffect(() => {
     let animationFrameId: number;
-    let offset = window.innerHeight / 2;
+    let offset = window.innerHeight;
 
     const updateAnimation = () => {
       const container = containerRef.current;
@@ -52,9 +52,9 @@ const CubeAnimation: React.FC<Props> = ({ containerRef }) => {
 
       const rect = container.getBoundingClientRect();
       const progress =
-        (window.scrollY - rect.top - offset) /
-        (rect.height + (window.innerHeight - offset));
+        (offset - rect.top) / (rect.height + (window.innerHeight - offset));
       const frames = container.querySelectorAll('.cube-frame');
+      console.log(progress);
       const showFrame = Math.floor(progress * images.length);
       if (progress > 0 && progress < 1) {
         for (let i = 0; i < frames.length; i++) {
@@ -76,13 +76,13 @@ const CubeAnimation: React.FC<Props> = ({ containerRef }) => {
   }, [containerRef]);
 
   return (
-    <div className="cube-animation relative z-40 h-full w-full">
+    <div className="cube-animation relative z-40 h-full w-full -translate-y-[10px]">
       {formattedImages.map((image, index) => (
         <img
           key={image}
           src={image}
           alt={`Cube Animation Frame ${index + 1}`}
-          className={`cube-frame absolute right-0 bottom-0 ${index === 0 ? 'block' : 'hidden'} w-[40%]`}
+          className={`cube-frame absolute bottom-0 left-1/2 -translate-x-1/2 ${index === 0 ? 'block' : 'hidden'} w-[44vw] 2xl:w-[850px]`}
         />
       ))}
     </div>

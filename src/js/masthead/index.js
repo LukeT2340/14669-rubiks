@@ -4,10 +4,10 @@ import 'powered-immersive-header/dist/style.css';
 masthead({
   headerConfig: {
     bgColor: 'white',
-    textColor: '#0A1633',
+    textColor: '#8248FC',
   },
   footerConfig: {
     bgColor: 'white',
-    textColor: '#0A1633',
+    textColor: '#8248FC',
   },
 });

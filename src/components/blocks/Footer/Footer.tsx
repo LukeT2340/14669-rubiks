@@ -4,11 +4,11 @@ import { BRAND_URL, BRAND_NAME } from '../../../js/global-variables.ts';
 
 const Footer = () => {
   return (
-    <footer className="integration-message absolute bottom-[60px] z-10 flex w-full flex-col items-center justify-center text-center">
-      <h3 className="integration-text font-lato m-0 pb-[12px] text-[9px] leading-none font-medium text-white uppercase">
+    <footer className="integration-message absolute bottom-[60px] z-40 flex w-full flex-col items-center justify-center text-center">
+      <span className="integration-text font-lato m-0 pb-[12px] text-[9px] leading-none font-medium text-white uppercase">
         Advertising feature{' '}
         <span className="sr-only">{`sponsored by ${BRAND_NAME}`}</span>
-      </h3>
+      </span>
       <CustomLink href={BRAND_URL} className="integration-logo group">
         <img
           src={logo}

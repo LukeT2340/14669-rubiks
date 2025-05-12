@@ -42,7 +42,8 @@ const VideoScroll = ({
       let currentTime = 0;
       const updateAnimation = () => {
         const progress =
-          window.scrollY / (document.body.scrollHeight - window.innerHeight);
+          (window.scrollY * 2.3) /
+          (document.body.scrollHeight - window.innerHeight);
 
         currentTime = player.currentTime();
         const newTime = videoDuration * progress;
@@ -65,7 +66,7 @@ const VideoScroll = ({
   }, [scriptLoaded]);
 
   return (
-    <div className={className}>
+    <div className={`${className} video-scroll`}>
       <VideoJS
         data-account="6165065566001"
         data-player={playerId ?? VIDEO_PLAYER_ID}
