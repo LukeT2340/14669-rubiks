@@ -3,16 +3,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionImage } from '../../miscellaneous';
 import two from '../../../assets/images/common/two.jpg';
 import cube from '../../../assets/images/common/cube.png';
+import { useMediaQuery } from 'react-responsive';
 
 const SectionThree: React.FC = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const mobile = useMediaQuery({ maxWidth: 1025 });
 
   useEffect(() => {
     const image = imageRef.current;
     const section = sectionRef.current;
 
-    if (!image || !section) return;
+    if (!image || !section || mobile) return;
 
     const scrollTrigger = ScrollTrigger.create({
       trigger: section,
@@ -34,9 +36,11 @@ const SectionThree: React.FC = () => {
       ref={sectionRef}
     >
       <div className="bg-red absolute top-0 left-0 z-20 h-[49px] w-full" />
-      <div className="3xl:mx-auto relative mx-auto flex max-w-[1920px] items-start justify-end gap-[77px]">
-        <div className="block-copy mt-[169px] mb-[150px] max-w-[458px]">
-          <h3 className="mb-[45px]">More than just a toy</h3>
+      <div className="3xl:mx-auto relative mx-auto flex max-w-[1920px] flex-col items-start justify-end gap-[60px] lg:flex-row lg:gap-[77px]">
+        <div className="block-copy order-2 mb-[69px] max-w-[458px] pr-[67px] pl-[33px] lg:order-1 lg:mt-[169px] lg:mb-[150px] lg:px-0">
+          <h3 className="mb-[30px] lg:mb-[45px]">
+            More than <br className="lg:hidden!" /> just a toy
+          </h3>
           <p>
             Regardless of your age or skill level, you’ll never be bored with a
             Rubik’s Cube. With more than 43 quintillion possible combinations,
@@ -75,7 +79,7 @@ const SectionThree: React.FC = () => {
         <img
           src={two}
           alt="Girl playing with Rubik's cube"
-          className="mt-[44px] h-[calc(100vh-44px)] max-h-[calc(100vh-44px)] w-[960px] max-w-[50vw] object-cover 2xl:h-auto"
+          className="order-1 mt-[44px] ml-auto max-w-[95%] object-cover lg:order-2 lg:ml-0 lg:h-[calc(100vh-44px)] lg:max-h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw] 2xl:h-auto"
           ref={imageRef}
         />
       </div>

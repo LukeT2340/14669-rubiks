@@ -3,16 +3,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionImage } from '../../miscellaneous';
 import three from '../../../assets/images/common/three.jpg';
 import cube from '../../../assets/images/common/cube-2.png';
+import { useMediaQuery } from 'react-responsive';
 
 const SectionFour: React.FC = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const mobile = useMediaQuery({ maxWidth: 1025 });
 
   useEffect(() => {
     const image = imageRef.current;
     const section = sectionRef.current;
 
-    if (!image || !section) return;
+    if (!image || !section || mobile) return;
 
     const scrollTrigger = ScrollTrigger.create({
       trigger: section,
@@ -30,15 +32,17 @@ const SectionFour: React.FC = () => {
 
   return (
     <section className="section-four relative z-20 bg-black" ref={sectionRef}>
-      <div className="mx-auto flex max-w-[1920px] items-start justify-start gap-[77px]">
+      <div className="mx-auto flex flex-col items-start justify-start gap-[58px] lg:max-w-[1920px] lg:flex-row lg:gap-[77px]">
         <img
           src={three}
           alt="Teenager playing with Rubik's Cube"
-          className="h-[calc(100vh-44px)] w-[960px] max-w-[50vw] 2xl:h-auto"
+          className="max-w-[95%] object-cover lg:h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw] 2xl:h-auto"
           ref={imageRef}
         />
-        <div className="block-copy mt-[118px] mb-[142px] max-w-[458px]">
-          <h3 className="mb-[45px]">The surprising benefits of hands-on fun</h3>
+        <div className="block-copy mb-[142px] max-w-[100vw] pr-[67px] pl-[38px] lg:mt-[118px] lg:max-w-[458px] lg:px-0">
+          <h3 className="mb-[30px] lg:mb-[45px]">
+            The surprising benefits of hands-on fun
+          </h3>
           <p>
             In our increasingly digital world, it’s all too easy to get lost in
             a loop of mindless scrolling, but the vibrant tiles of the Rubik’s
@@ -57,7 +61,7 @@ const SectionFour: React.FC = () => {
           <MotionImage
             src={cube}
             alt="Rubik's cube"
-            className="-mt-20 max-w-[713px] -translate-x-[200px]"
+            className="-mt-10 max-w-[105vw] -translate-x-[10vw] lg:-mt-20 lg:max-w-[713px] lg:-translate-x-[200px]"
           />
           <p>
             To solve the complex puzzle, users need to recall patterns,

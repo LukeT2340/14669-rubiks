@@ -3,12 +3,12 @@ import one from '../../../assets/images/common/one.jpg';
 
 const SectionTwo: React.FC = () => {
   return (
-    <section className="section-two section-two-background relative z-20 pt-[154px] pb-[191px]">
-      <div className="mx-auto flex max-w-[1188px] items-center justify-start gap-[54px] border-[4px] border-white p-[40px]">
+    <section className="section-two section-two-background relative z-20 pt-[45px] pb-[28px] lg:pt-[154px] lg:pb-[191px]">
+      <div className="mx-[17px] flex max-w-[1188px] flex-col items-center justify-start gap-[19px] border-[4px] border-white p-[23px] lg:mx-auto lg:flex-row lg:gap-[54px] lg:p-[40px]">
         <MotionImage
           src={one}
           alt="Boy playing with Rubik's Cube"
-          className="max-w-[50%] object-cover"
+          className="max-w-full object-cover lg:max-w-[50%]"
         />
         <div className="block-copy max-w-[456px]">
           <p>

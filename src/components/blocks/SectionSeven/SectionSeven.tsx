@@ -16,9 +16,16 @@ const SectionSeven: React.FC = () => {
         <h4 className="uppercase">
           <span className="text-yellow block">Ready to colour your world?</span>
           <span className="block text-white">
-            <CustomLink href={BRAND_URL} className="underline">
-              Rubik’s Cubes
-            </CustomLink>{' '}
+            <a
+              href={BRAND_URL}
+              className="link"
+              id="style-2"
+              rel="noopener noreferrer"
+              target="_blank"
+              data-replace="Rubik’s Cubes"
+            >
+              <span>Rubik’s Cubes</span>
+            </a>{' '}
             are available on Amazon and at Big W, Kmart, Target and all good toy
             retailers.
           </span>
@@ -26,9 +33,14 @@ const SectionSeven: React.FC = () => {
       </div>
       <CustomLink
         href={BRAND_URL}
-        className="bg-yellow footer-link mx-auto flex h-[52px] w-[204px] items-center justify-center rounded-[5px] text-black"
+        className="bg-yellow footer-link group relative mx-auto flex h-[52px] w-[204px] items-center justify-center rounded-[5px] text-nowrap text-black transition-all duration-300 hover:bg-white"
       >
-        LEARN MORE
+        <span className="transition-all duration-300 group-hover:translate-x-[300px]">
+          LEARN MORE
+        </span>
+        <span className="absolute left-1/2 -translate-x-[300px] transition-all duration-300 group-hover:-translate-x-1/2">
+          LEARN MORE
+        </span>
       </CustomLink>
     </section>
   );

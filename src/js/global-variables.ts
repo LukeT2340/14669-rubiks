@@ -1,8 +1,8 @@
 // src/js/global-variables.tsx
 
 // Define the global variables here that you want to use throughout the project.
-export const BRAND_URL = 'https://www.kia.com/au/main.html';
-export const BRAND_NAME = 'Kia';
+export const BRAND_URL = 'https://www.rubiks.com/';
+export const BRAND_NAME = "Rubik's";
 export const THEME_COLOR = '#3498db';
 export const VIDEO_SCRIPT_URL =
   'https://players.brightcove.net/6165065566001/WkAEp4m5G_default/index.min.js';
