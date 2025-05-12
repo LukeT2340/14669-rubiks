@@ -10,12 +10,12 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const section = sectionRef.current;
 
-    if (mobile) return;
+    // if (mobile) return;
 
     const scrollTrigger = ScrollTrigger.create({
       trigger: section,
       start: 'top top',
-      end: '+=200%',
+      end: mobile ? '+=100%' : '+=200%',
       pin: true,
       pinSpacing: true,
     });

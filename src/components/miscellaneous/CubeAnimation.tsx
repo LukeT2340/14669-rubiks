@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import one from '../../assets/images/cube-anim/1.png';
 import two from '../../assets/images/cube-anim/2.png';
 import three from '../../assets/images/cube-anim/3.png';
@@ -42,9 +43,11 @@ interface Props {
 }
 
 const CubeAnimation: React.FC<Props> = ({ containerRef }) => {
+  const mobile = useMediaQuery({ maxWidth: 1025 });
+
   useEffect(() => {
     let animationFrameId: number;
-    let offset = window.innerHeight;
+    let offset = mobile ? (6 / 5) * window.innerHeight : window.innerHeight;
 
     const updateAnimation = () => {
       const container = containerRef.current;
@@ -76,13 +79,13 @@ const CubeAnimation: React.FC<Props> = ({ containerRef }) => {
   }, [containerRef]);
 
   return (
-    <div className="cube-animation relative z-40 h-full w-full -translate-y-[10px]">
+    <div className="cube-animation relative z-40 h-full w-full -translate-y-[30px] lg:-translate-y-[10px]">
       {formattedImages.map((image, index) => (
         <img
           key={image}
           src={image}
           alt={`Cube Animation Frame ${index + 1}`}
-          className={`cube-frame absolute bottom-0 left-1/2 -translate-x-1/2 ${index === 0 ? 'block' : 'hidden'} w-[44vw] 2xl:w-[850px]`}
+          className={`cube-frame absolute bottom-0 left-1/2 -translate-x-1/2 ${index === 0 ? 'block' : 'hidden'} w-[358px] lg:w-[44vw] 2xl:w-[850px]`}
         />
       ))}
     </div>

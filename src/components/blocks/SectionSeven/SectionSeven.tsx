@@ -8,11 +8,11 @@ const SectionSeven: React.FC = () => {
 
   return (
     <section
-      className="section-seven relative z-20 bg-black pt-[33.3vw] pb-[169px] 2xl:pt-[640px]"
+      className="section-seven relative z-20 bg-black pt-[216px] pb-[206px] lg:pt-[33.3vw] lg:pb-[169px] 2xl:pt-[640px]"
       ref={sectionRef}
     >
       <CubeAnimation containerRef={sectionRef} />
-      <div className="relative z-20 mx-auto mb-[52px] max-w-[960px] text-center">
+      <div className="relative z-20 mx-auto mb-[52px] px-[35px] text-center lg:max-w-[960px] lg:px-0">
         <h4 className="uppercase">
           <span className="text-yellow block">Ready to colour your world?</span>
           <span className="block text-white">

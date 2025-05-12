@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionImage } from '../../miscellaneous';
@@ -7,12 +8,13 @@ import cube from '../../../assets/images/common/cube-3.png';
 const SectionSix: React.FC = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const mobile = useMediaQuery({ maxWidth: 1025 });
 
   useEffect(() => {
     const image = imageRef.current;
     const section = sectionRef.current;
 
-    if (!image || !section) return;
+    if (!image || !section || mobile) return;
 
     const scrollTrigger = ScrollTrigger.create({
       trigger: section,
@@ -33,8 +35,8 @@ const SectionSix: React.FC = () => {
       className="section-six relative z-20 bg-white text-black"
       ref={sectionRef}
     >
-      <div className="mx-auto flex max-w-[1920px] items-start justify-end gap-[77px]">
-        <div className="block-copy z-20 mt-[109px] mb-[150px] max-w-[458px]">
+      <div className="mx-auto flex flex-col items-start justify-end gap-[60px] pt-[18px] lg:max-w-[1920px] lg:flex-row lg:gap-[77px] lg:pt-0">
+        <div className="block-copy z-20 order-2 mb-[171px] max-w-[100vw] pr-[68px] pl-[33px] lg:order-1 lg:mt-[109px] lg:mb-[150px] lg:max-w-[458px] lg:px-0">
           <h3 className="mb-[45px]">
             Rediscovering quality time with a classic challenge
           </h3>
@@ -54,7 +56,7 @@ const SectionSix: React.FC = () => {
           <MotionImage
             src={cube}
             alt="Cube 4x4"
-            className="max-w-[665px] -translate-x-[80px]"
+            className="max-w-[95vw] -translate-x-[8vw] lg:max-w-[665px] lg:-translate-x-[80px]"
           />
           <p>
             Whichever activity you choose, it’s not about who wins or loses,
@@ -70,7 +72,7 @@ const SectionSix: React.FC = () => {
         <img
           src={four}
           alt="Kid playing with Rubik's Cube"
-          className="h-[calc(100vh-44px)] w-[960px] max-w-[50vw] 2xl:h-auto"
+          className="order-1 ml-auto max-w-[95%] lg:order-2 lg:ml-0 lg:h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw] 2xl:h-auto"
           ref={imageRef}
         />
       </div>
