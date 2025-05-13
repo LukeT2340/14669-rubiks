@@ -57,7 +57,6 @@ const CubeAnimation: React.FC<Props> = ({ containerRef }) => {
       const progress =
         (offset - rect.top) / (rect.height + (window.innerHeight - offset));
       const frames = container.querySelectorAll('.cube-frame');
-      console.log(progress);
       const showFrame = Math.floor(progress * images.length);
       if (progress > 0 && progress < 1) {
         for (let i = 0; i < frames.length; i++) {

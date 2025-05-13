@@ -1,7 +1,25 @@
 // @ts-nocheck
 import React, { useState, useEffect, useRef } from 'react';
 import { VIDEO_SCRIPT_URL, VIDEO_PLAYER_ID } from '../../js/global-variables';
-import useExternalScripts from '../../hooks/useExternalScripts';
+// import useExternalScripts from '../../hooks/useExternalScripts';
+
+const useExternalScripts = (url: string) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = () => setLoaded(true);
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [url]);
+
+  return loaded;
+};
 
 interface VideoProps {
   scriptUrl?: string;
@@ -48,7 +66,6 @@ const VideoScroll = ({
         currentTime = player.currentTime();
         const newTime = videoDuration * progress;
 
-        // Only update the current time if it has changed so as to avoid dom changes when not scrolling
         if (Math.abs(currentTime - newTime) > 0.001) {
           player.currentTime(newTime);
         }

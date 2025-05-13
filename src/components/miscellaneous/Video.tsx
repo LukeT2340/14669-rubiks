@@ -1,20 +1,45 @@
 // @ts-nocheck
 import React, { useState, useEffect, useRef } from 'react';
-import { VIDEO_SCRIPT_URL, VIDEO_PLAYER_ID } from '../../js/global-variables';
-import useExternalScripts from '../../hooks/useExternalScripts';
+import { VIDEO_PLAYER_ID, VIDEO_SCRIPT_URL } from '../../js/global-variables';
+// import useExternalScripts from '../../hooks/useExternalScripts'
 
 interface VideoProps {
   scriptUrl?: string;
   playerId?: string;
   videoId: string;
   className?: string;
+  style?: any;
 }
 
 const VideoJS = React.forwardRef((props: any, ref: any) =>
   React.createElement('video-js', { ...props, ref })
 );
 
-const Video = ({ scriptUrl, playerId, videoId, className }: VideoProps) => {
+const useExternalScripts = (url: string) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = () => setLoaded(true);
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [url]);
+
+  return loaded;
+};
+
+const Video = ({
+  scriptUrl,
+  playerId,
+  videoId,
+  style,
+  className,
+}: VideoProps) => {
   const scriptLoaded = useExternalScripts(scriptUrl ?? VIDEO_SCRIPT_URL);
   const videoRef = useRef<HTMLDivElement>(null);
 
@@ -69,7 +94,7 @@ const Video = ({ scriptUrl, playerId, videoId, className }: VideoProps) => {
   }, [scriptLoaded]);
 
   return (
-    <div className={`${className}`}>
+    <div className={`${className}`} style={style}>
       <VideoJS
         ref={videoRef}
         data-account="6165065566001"
