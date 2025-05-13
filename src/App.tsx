@@ -12,7 +12,7 @@ import SectionFour from './components/blocks/SectionFour';
 import SectionFive from './components/blocks/SectionFive';
 import SectionSix from './components/blocks/SectionSix';
 import SectionSeven from './components/blocks/SectionSeven';
-import VideoAutoPlay from './components/miscellaneous/VideoAutoPlay';
+// import VideoAutoPlay from './components/miscellaneous/VideoAutoPlay';
 import useGSAPMobileAnimations from './hooks/useGSAPMobileAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
