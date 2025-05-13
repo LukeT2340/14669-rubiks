@@ -79,7 +79,7 @@ const SectionThree: React.FC = () => {
         <img
           src={two}
           alt="Girl playing with Rubik's cube"
-          className="order-1 mt-[44px] ml-auto max-w-[95%] object-cover lg:order-2 lg:ml-0 lg:h-[calc(100vh-44px)] lg:max-h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw] 2xl:h-auto"
+          className="3xl:w-[1050px] order-1 mt-[44px] ml-auto max-w-[95%] object-cover object-top lg:order-2 lg:ml-0 lg:h-[calc(100vh-44px)] lg:max-h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw]"
           ref={imageRef}
         />
       </div>

@@ -1,5 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import useExternalScripts from '../../hooks/useExternalScripts';
+// import useExternalScripts from '../../hooks/useExternalScripts'
+
+interface VideoProps {
+  videoId: string;
+  className?: string;
+}
+
+const VideoJS = React.forwardRef((props: any, ref: any) =>
+  React.createElement('video-js', { ...props, ref })
+);
 
 const useExternalScripts = (url: string) => {
   const [loaded, setLoaded] = useState(false);
@@ -19,16 +28,7 @@ const useExternalScripts = (url: string) => {
   return loaded;
 };
 
-interface VideoProps {
-  videoId: string;
-  className?: string;
-}
-
-const VideoJS = React.forwardRef((props: any, ref: any) =>
-  React.createElement('video-js', { ...props, ref })
-);
-
-const VideoScroll = ({ videoId, className }: VideoProps) => {
+const VideoAutoPlay = ({ videoId, className }: VideoProps) => {
   const scriptLoaded = useExternalScripts(
     'https://players.brightcove.net/6165065566001/wIpGq2Kd0p_default/index.min.js'
   );
@@ -43,51 +43,27 @@ const VideoScroll = ({ videoId, className }: VideoProps) => {
   useEffect(() => {
     if (!scriptLoaded) return;
 
-    console.log('Script loaded');
-
     const videojs = (window as any).videojs;
-
-    if (!videojs) {
-      console.error('Video.js not found');
-      return;
-    }
 
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const video = entry.target;
           const videoID = video.getAttribute('id');
+          // @ts-ignore
           const player = videojs.getPlayer(videoID);
 
-          player.ready(async () => {
-            console.log('Player ready');
-
-            await player.muted(true);
-
-            console.log('Player muted');
-
-            player.setAttribute('playsinline', '');
-            player.setAttribute('webkit-playsinline', '');
-
-            await player.play();
-
-            const videoDuration = player.duration();
-            let currentTime = 0;
-            const updateAnimation = () => {
-              const progress =
-                (window.scrollY * 2.3) /
-                (document.body.scrollHeight - window.innerHeight);
-              currentTime = player.currentTime();
-              const newTime = videoDuration * progress;
-
-              if (Math.abs(currentTime - newTime) > 0.001) {
-                player.currentTime(newTime);
+          if (player.currentTime() !== 0 || player.currentTime() === 0) {
+            player.ready(async () => {
+              const promise = player.play();
+              if (promise !== undefined) {
+                promise.catch(() => {
+                  player.play();
+                  player.mute();
+                });
               }
-              requestAnimationFrame(updateAnimation);
-            };
-
-            requestAnimationFrame(updateAnimation);
-          });
+            });
+          }
         } else {
           // @ts-ignore
           if (window.videojs) {
@@ -105,11 +81,18 @@ const VideoScroll = ({ videoId, className }: VideoProps) => {
     if (videoRef.current) {
       videoObserver.observe(videoRef.current);
     }
+
+    return () => {
+      if (videoRef.current) {
+        videoObserver.unobserve(videoRef.current);
+      }
+    };
   }, [scriptLoaded]);
 
   return (
-    <div className={`${className} video-scroll`}>
+    <div className={`${className} video-autoplay`}>
       <VideoJS
+        ref={videoRef}
         data-account="6165065566001"
         data-player={'wIpGq2Kd0p'}
         data-embed="default"
@@ -117,14 +100,13 @@ const VideoScroll = ({ videoId, className }: VideoProps) => {
         data-video-id={videoId}
         data-playlist-id=""
         data-application-id=""
-        ref={videoRef}
         class="vjs-fluid"
-        id="video-player"
         muted
+        loop
       />
-      <h3 className="sr-only">Video</h3>
+      <h3 className="reader-only hidden">Video</h3>
     </div>
   );
 };
 
-export default VideoScroll;
+export default VideoAutoPlay;

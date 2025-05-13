@@ -187,3 +187,7 @@ p {
 .link:hover span {
   transform: translate3d(-200%, 0, 0);
 }
+
+.video-autoplay .vjs-control-bar {
+  display: none !important;
+}

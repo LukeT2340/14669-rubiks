@@ -72,7 +72,7 @@ const SectionSix: React.FC = () => {
         <img
           src={four}
           alt="Kid playing with Rubik's Cube"
-          className="order-1 ml-auto max-w-[95%] lg:order-2 lg:ml-0 lg:h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw] 2xl:h-auto"
+          className="3xl:w-[1050px] order-1 ml-auto max-w-[95%] object-cover lg:order-2 lg:ml-0 lg:h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw]"
           ref={imageRef}
         />
       </div>

@@ -10,13 +10,11 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const section = sectionRef.current;
 
-    // if (mobile) return;
-
     const scrollTrigger = ScrollTrigger.create({
       trigger: section,
       start: 'top top',
       end: mobile ? '+=100%' : '+=200%',
-      pin: true,
+      pin: !mobile,
       pinSpacing: true,
     });
 
@@ -52,9 +50,9 @@ const Hero: React.FC = () => {
       className="hero relative pt-[492px] pb-[47px] sm:pt-[570px] lg:h-screen lg:py-0"
       ref={sectionRef}
     >
-      <div className="z-20 px-[33px] lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-y-1/2">
+      <div className="z-20 px-[33px] lg:absolute lg:top-1/2 lg:left-[calc(50vw-50px)] lg:-translate-y-1/2 2xl:left-1/2">
         <h1>The Cube that conquered the world:</h1>
-        <h2 className="mb-[53px]">
+        <h2 className="mb-[53px] text-nowrap">
           The enduring <br /> magic of the <br /> Rubik’s Cube
         </h2>
         <div className="hero-copy lg:max-w-[476px]">

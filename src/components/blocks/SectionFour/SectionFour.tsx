@@ -36,7 +36,7 @@ const SectionFour: React.FC = () => {
         <img
           src={three}
           alt="Teenager playing with Rubik's Cube"
-          className="max-w-[95%] object-cover lg:h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw] 2xl:h-auto"
+          className="3xl:w-[1050px] max-w-[95%] object-cover lg:h-[calc(100vh-44px)] lg:w-[960px] lg:max-w-[50vw]"
           ref={imageRef}
         />
         <div className="block-copy mx-auto mb-[75px] max-w-[100vw] pr-[67px] pl-[38px] sm:max-w-[600px] lg:mx-0! lg:mt-[118px] lg:mb-[142px] lg:max-w-[458px] lg:px-0">

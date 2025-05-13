@@ -23,7 +23,7 @@ const LocomotiveParallax: React.FC<LocomotiveScrollProps> = ({
       new LocomotiveScroll({
         el: divRef.current,
         smooth: true,
-        lerp: 0.07,
+        lerp: 0.04,
         multiplier: 0.7,
       } as IExtendedLocomotiveScrollOptions);
     }
